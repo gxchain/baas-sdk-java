@@ -42,4 +42,4 @@ You can get more from **com.gxb.block.baas.sdk.client.api.example**.
 
 # Dev Documents
 
-https://doc.gxb.io/des/
+https://doc.gxb.io/gxchain/api/baas-api.html
