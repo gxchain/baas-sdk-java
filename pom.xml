@@ -121,12 +121,12 @@
         <dependency>
             <groupId>com.gxchain.common</groupId>
             <artifactId>ws-client</artifactId>
-            <version>1.0.0-RELEASE</version>
+            <version>1.0.1-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.gxchain.common</groupId>
             <artifactId>common-signature</artifactId>
-            <version>1.0.0-RELEASE</version>
+            <version>1.0.1-RELEASE</version>
         </dependency>
     </dependencies>
 
