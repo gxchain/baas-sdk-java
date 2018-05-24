@@ -28,7 +28,8 @@ public class StoreDataClient extends BaasDefaultClient {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final String STORE_URL = "store";
-    private static final String STORE_FEE_URL = "storeFee";
+//    private static final String STORE_FEE_URL = "storeFee";// 1.0.0-RELEASE
+    private static final String STORE_FEE_URL = "store/fee"; // 1.0.1-RELEASE
     private static final String GET_DATA_URL_BODY = "data/";
     private final int percent = 0;
     private final String assetId = BaasConstants.ASSET_ID_GXS;

@@ -38,6 +38,9 @@ public interface BaasConstants {
 
     // online
         String BAAS_ACCOUNT = "1.2.639287";
-
+    //    String EXAMPLE_BAAS_URL = "https://baas.gxchain.cn/";
+    //    String EXAMPLE_ACCOUNT = "1.2.695685";
+    //    String EXAMPLE_PUBLIC_KEY = "GXC7A4jVDUveKWdRNGVSrwCDPhho6MKNKAMo7HndpGp894bpouiXg";
+    //    String EXAMPLE_PRIVATE_KEY = "5Hq9szJYhaBjECe2Cz6BJ25Nkf3NsSiR8Gt16c9yhpaNKiGs3i3";
     Integer KBYTE_NUM = 1024;
 }
