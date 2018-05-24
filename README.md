@@ -6,6 +6,8 @@ If you just enjoy the BaaS service. you can go to [BaaS API](https://doc.gxb.io/
 
 # Storage Usage
 
+## store String/File/byte[]
+
 ```js
 // build store client
 // 构建存储客户端
@@ -16,10 +18,25 @@ If you just enjoy the BaaS service. you can go to [BaaS API](https://doc.gxb.io/
 StoreClient client = new StoreClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
 // response
 // 获取返回
-StoreDataResp resp = client.store("Hello World!".getBytes());
+// byte[]
+StoreDataResp resp = client.store("Hello GXChain!".getBytes());
+// String
+StoreDataResp respString = client.storeString("Hello GXChain!");
+// File
+StoreDataResp respFile = client.storeFile(new File(FILE_PATH));
 ```
 
 You can get more from **com.gxb.block.baas.sdk.client.api.client.StoreClient**.
+
+## get upload file/string
+
+```js
+StoreClient client = new StoreClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
+// File 
+File file = client.downloadFile(CID,FILE_PATH);
+// String
+String str = client.getRawString(CID);
+```
 
 # Dev Documents
 
