@@ -20,11 +20,11 @@ public class StoreDataClientTest {
 
     @Test
     public void store() {
-        System.out.println(JSON.toJSONString(storeDataClient.store("test".getBytes())));
+//        System.out.println(JSON.toJSONString(storeDataClient.store("test".getBytes())));
     }
 
     @Test
     public void getStoreDataReq() {
-        System.out.println(storeDataClient.getStoreDataReq("QmaZrwThXyZm8Rxs93Tih3L6p4Q8NqYEXp32iN4PeAqDgv"));
+//        System.out.println(storeDataClient.getStoreDataReq("QmaZrwThXyZm8Rxs93Tih3L6p4Q8NqYEXp32iN4PeAqDgv"));
     }
 }

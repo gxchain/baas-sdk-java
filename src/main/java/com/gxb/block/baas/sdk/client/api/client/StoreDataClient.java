@@ -15,6 +15,7 @@ import org.springframework.util.DigestUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import static com.gxb.block.baas.sdk.client.api.BaasConstants.KBYTE_NUM;
 
@@ -28,7 +29,7 @@ public class StoreDataClient extends BaasDefaultClient {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final String STORE_URL = "store";
-//    private static final String STORE_FEE_URL = "storeFee";// 1.0.0-RELEASE
+    //    private static final String STORE_FEE_URL = "storeFee";// 1.0.0-RELEASE
     private static final String STORE_FEE_URL = "store/fee"; // 1.0.1-RELEASE
     private static final String GET_DATA_URL_BODY = "data/";
     private final int percent = 0;
@@ -62,6 +63,7 @@ public class StoreDataClient extends BaasDefaultClient {
 
     /**
      * 上传String
+     *
      * @param rawString 原始String
      * @return
      */
@@ -71,6 +73,7 @@ public class StoreDataClient extends BaasDefaultClient {
 
     /**
      * 上传文件
+     *
      * @param rawFile 原始文件
      * @return
      */
@@ -122,16 +125,31 @@ public class StoreDataClient extends BaasDefaultClient {
     /**
      * 获取已存储的数据
      *
-     * @param cid ipfs的cid值
+     * @param cid 存进ipfs的cid值
      * @return
      */
-    public String getStoreDataReq(String cid) {
+    public String getRawStringData(String cid) {
         try {
             return this.execute(this.urlHeader + GET_DATA_URL_BODY + cid);
         } catch (BaasApiException e) {
             logger.error(e.getMessage(), e);
         }
         return null;
+    }
+
+    /**
+     * 获取已存储的文件
+     *
+     * @param cid 存进ipfs的cid值
+     * @param targetFile 要下载到的文件
+     */
+    public void downloadFile(String cid, File targetFile) {
+        try {
+            this.setUrl(this.urlHeader + GET_DATA_URL_BODY + cid);
+            FileUtils.copyInputStreamToFile(this.download(), targetFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private Long calculateAmount(byte[] data, long feeKByte) {
