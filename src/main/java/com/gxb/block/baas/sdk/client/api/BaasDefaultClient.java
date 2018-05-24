@@ -1,6 +1,10 @@
 package com.gxb.block.baas.sdk.client.api;
 
 import com.alibaba.fastjson.JSON;
+import com.gxb.block.baas.sdk.client.api.BaasApiException;
+import com.gxb.block.baas.sdk.client.api.BaasClient;
+import com.gxb.block.baas.sdk.client.api.BaasRequest;
+import com.gxb.block.baas.sdk.client.api.BaasResponse;
 import com.gxb.block.baas.sdk.client.utils.HttpUtils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,30 +22,38 @@ import java.util.Map;
  * @Version 1.0
  */
 @Data @AllArgsConstructor public class BaasDefaultClient implements BaasClient {
+
     private String url;
-    private boolean isPost;
+    private boolean isPost = true;
+
+    public BaasDefaultClient(){
+    }
 
     public BaasDefaultClient(String url) {
         this.url = url;
-        this.isPost = true;
     }
 
     @Override public <T extends BaasResponse> T execute(BaasRequest<T> request) throws BaasApiException {
-        String result = isPost ? HttpUtils.getPostRespJson(url, request.toMap()) : HttpUtils.getGetRespJson(url);
+        String result = isPost ? HttpUtils.getPostRespJson(getUrl(), request.toMap()) : HttpUtils.getGetRespJson(url);
         return StringUtils.isEmpty(result) ? null : JSON.parseObject(result, request.getResponseClass());
     }
 
     @Override public <T extends BaasResponse> T executeFormData(BaasRequest<T> request, String dataName, File data) throws BaasApiException {
-        String result = HttpUtils.getPostFormDataRespJson(url, request.toMap(), dataName, data);
+        String result = HttpUtils.getPostFormDataRespJson(getUrl(), request.toMap(), dataName, data);
         return StringUtils.isEmpty(result) ? null : JSON.parseObject(result, request.getResponseClass());
     }
 
+    @Override
+    public String execute(String url) throws BaasApiException {
+        return HttpUtils.getGetRespJson(url);
+    }
+
     @Override public InputStream download() {
-        return HttpUtils.getGetFile(this.url);
+        return HttpUtils.getGetFile(getUrl());
     }
 
     @Override public <T extends BaasResponse> T executeFormData(BaasRequest<T> request, String dataName, byte[] data) throws BaasApiException {
-        String result = HttpUtils.getPostFormDataRespJson(url, request.toMap(), dataName, data);
+        String result = HttpUtils.getPostFormDataRespJson(getUrl(), request.toMap(), dataName, data);
         return StringUtils.isEmpty(result) ? null : JSON.parseObject(result, request.getResponseClass());
     }
 }

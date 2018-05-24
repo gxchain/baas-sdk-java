@@ -31,7 +31,9 @@ public class HttpUtils {
 
     public static String getPostRespJson(String url, Map<String, String> params) {
         List<NameValuePair> pairs = new ArrayList<>();
-        params.forEach((k, v) -> pairs.add(new BasicNameValuePair(k, v)));
+        if (null != params) {
+            params.forEach((k, v) -> pairs.add(new BasicNameValuePair(k, v)));
+        }
 
         HttpPost httpPost = new HttpPost(url);
         EntityBuilder entityBuilder = EntityBuilder.create();

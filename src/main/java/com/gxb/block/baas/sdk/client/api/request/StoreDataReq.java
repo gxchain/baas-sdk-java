@@ -65,9 +65,4 @@ import static com.gxb.block.baas.sdk.client.api.BaasConstants.KBYTE_NUM;
     @Override public String sign(String priKey, String pubKey) {
         return super.sign(priKey, pubKey);
     }
-
-    public Long calculateAmount(long feeKByte) {
-        long f = this.data.length / KBYTE_NUM * feeKByte;
-        return this.data.length % KBYTE_NUM == 0 ? f : f + feeKByte;
-    }
 }

@@ -6,7 +6,7 @@ If you just enjoy the BaaS service. you can go to [BaaS API](https://doc.gxb.io/
 
 # Storage Usage
 
-```java
+```js
 // The storage fee needs to be called to obtain the rate interface and calculate the value based on the size of the data to be saved. For example: 1.2 KB data cost is 2 * 20 = 40
 // 存取费用 需要调用获取费率接口再根据要存数据的大小计算得出该值 eg: 1.2KB的数据费用amount为 2*20=40
 Amount amount = Amount.builder().amount(20L).assetId("1.3.1").build();

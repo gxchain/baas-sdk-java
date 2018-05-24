@@ -15,5 +15,7 @@ public interface BaasClient {
 
     <T extends BaasResponse> T executeFormData(BaasRequest<T> request, String dataName,File data) throws BaasApiException;
 
+    String execute(String url) throws BaasApiException;
+
     InputStream download();
 }
