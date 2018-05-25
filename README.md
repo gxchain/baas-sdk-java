@@ -28,7 +28,7 @@ StoreDataResp respFile = client.storeFile(new File(FILE_PATH));
 
 You can get more from **com.gxb.block.baas.sdk.client.api.client.StoreClient**.
 
-## get upload file/string
+## get upload file/string/byte[]
 
 ```js
 StoreClient client = new StoreClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
@@ -36,6 +36,8 @@ StoreClient client = new StoreClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMP
 File file = client.downloadFile(CID,FILE_PATH);
 // String
 String str = client.getRawString(CID);
+// byte[]
+byte[] bytes = client.getRawBytes(CID);
 ```
 
 # Dev Documents
