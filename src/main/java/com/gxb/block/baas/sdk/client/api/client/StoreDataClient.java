@@ -9,6 +9,7 @@ import com.gxb.block.baas.sdk.client.api.request.StoreDataReq;
 import com.gxb.block.baas.sdk.client.api.response.GetStoreDataFeeResp;
 import com.gxb.block.baas.sdk.client.api.response.StoreDataResp;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.DigestUtils;
@@ -123,6 +124,21 @@ public class StoreDataClient extends BaasDefaultClient {
     }
 
     /**
+     * 获取已存储的Buffer
+     * @param cid
+     * @return
+     */
+    public byte[] getRawBytes(String cid) {
+        try {
+            this.setUrl(this.urlHeader + GET_DATA_URL_BODY + cid);
+            return IOUtils.toByteArray(this.download());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * 获取已存储的数据
      *
      * @param cid 存进ipfs的cid值
@@ -140,7 +156,7 @@ public class StoreDataClient extends BaasDefaultClient {
     /**
      * 获取已存储的文件
      *
-     * @param cid 存进ipfs的cid值
+     * @param cid        存进ipfs的cid值
      * @param targetFile 要下载到的文件
      */
     public void downloadFile(String cid, File targetFile) {
