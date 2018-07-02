@@ -186,7 +186,7 @@ public class StoreDataClient extends BaasDefaultClient {
         } else {
             this.baasAccountId = provider.getData().getBaasAccountId();
             this.baasAccountDevId = provider.getData().getBaasAccountDevId();
-            this.feePerKByte = provider.getData().getFees().stream().filter(a -> ASSET_ID_GXS.equals(a.getAssetId())).findAny().map(ProviderResp.Fee::getFeePerKByte).orElse(BaasConstants.FEE_PER_KBYTE);
+            this.feePerKByte = provider.getData().getFees().stream().filter(a -> ASSET_ID_GXS.equals(a.getAssetId())).findAny().map(ProviderResp.Fee::getFeePerKBytes).orElse(BaasConstants.FEE_PER_KBYTE);
         }
     }
 

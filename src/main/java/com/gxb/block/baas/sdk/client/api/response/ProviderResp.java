@@ -31,8 +31,8 @@ public class ProviderResp extends BaasResponse {
 
     @Data
     public static class Fee {
-        @JSONField(name = "fee_per_kbyte")
-        private Integer feePerKByte;
+        @JSONField(name = "fee_per_kbytes")
+        private Integer feePerKBytes;
         @JSONField(name = "asset_id")
         private String assetId;
     }
