@@ -1,5 +1,10 @@
 package com.gxb.block.baas.sdk.client.api;
 
+import com.gxb.block.baas.sdk.client.api.request.ProviderReq;
+import com.gxb.block.baas.sdk.client.api.response.ProviderResp;
+
+import javax.annotation.Nullable;
+
 /**
  * @Description
  * @Author Hanawa
@@ -7,40 +12,28 @@ package com.gxb.block.baas.sdk.client.api;
  * @Version 1.0
  */
 public interface BaasConstants {
+    Integer KBYTE_NUM = 1024;
+    Integer FEE_PER_KBYTE = 20;
     String ASSET_ID_GXS = "1.3.1";
 
+    // 线上 路径
     String URL_HEADER = "https://baas.gxchain.cn/api/";
+    // 开发者 路径
     String URL_DEVELOPER_HEADER = "https://baas-developer.gxchain.cn/api/";
 
-    // develop
-    String EXAMPLE_URL_HEADER = "http://192.168.1.165:6318/api/";
-//    String EXAMPLE_BAAS_URL = "http://192.168.1.165:6318/";
-//    String EXAMPLE_BAAS_URL = "http://localhost:6318/";
-//    String EXAMPLE_ACCOUNT = "1.2.391";
-//    String BAAS_ACCOUNT = "1.2.390";
-//    String BAAS_DEV_ACCOUNT = "1.2.390";
-//    String EXAMPLE_PUBLIC_KEY = "GXC8435JoLsmNgEzJBqkSzqfz65isQA1XfTvkGycG5KAdgsq4BhwV";
-//    String EXAMPLE_PRIVATE_KEY = "5KAYWd4oGVN6ZMcXej9DB74gqNZhcZP7fWtn2MKoCmsUwzJjQVy";
-
-    // test
+    // 线上 正式节点BaaS账户，对应gxs-wallet
+    String BAAS_ACCOUNT = "1.2.639287";
+    // 开发者 测试节点BaaS账户，对应gxs-wallet
     String BAAS_DEV_ACCOUNT = "1.2.440";
-//    String EXAMPLE_BAAS_URL = "http://192.168.5.157:6318/";
-    String EXAMPLE_ACCOUNT = "1.2.441";
-    String EXAMPLE_PUBLIC_KEY = "GXC8435JoLsmNgEzJBqkSzqfz65isQA1XfTvkGycG5KAdgsq4BhwV";
-    String EXAMPLE_PRIVATE_KEY = "5KAYWd4oGVN6ZMcXej9DB74gqNZhcZP7fWtn2MKoCmsUwzJjQVy";
 
-    // sdk
-//    String EXAMPLE_BAAS_URL = "https://baas.gxchain.cn/";
-//    String EXAMPLE_ACCOUNT = "";
-//    String BAAS_ACCOUNT = "1.2.639287";
-//    String EXAMPLE_PUBLIC_KEY = "";
-//    String EXAMPLE_PRIVATE_KEY = "";
 
-    // online
-        String BAAS_ACCOUNT = "1.2.639287";
-    //    String EXAMPLE_BAAS_URL = "https://baas.gxchain.cn/";
-    //    String EXAMPLE_ACCOUNT = "1.2.695685";
-    //    String EXAMPLE_PUBLIC_KEY = "GXC7A4jVDUveKWdRNGVSrwCDPhho6MKNKAMo7HndpGp894bpouiXg";
-    //    String EXAMPLE_PRIVATE_KEY = "5Hq9szJYhaBjECe2Cz6BJ25Nkf3NsSiR8Gt16c9yhpaNKiGs3i3";
-    Integer KBYTE_NUM = 1024;
+    @Nullable
+    static ProviderResp getProvider() {
+        try {
+            return new BaasDefaultClient(URL_HEADER + "storage/provider").execute(new ProviderReq());
+        } catch (BaasApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

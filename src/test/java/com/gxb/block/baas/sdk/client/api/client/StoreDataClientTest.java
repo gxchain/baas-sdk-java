@@ -15,12 +15,16 @@ import static org.junit.Assert.*;
  */
 public class StoreDataClientTest {
 
+    private static String EXAMPLE_ACCOUNT = "1.2.441";
+    private static String EXAMPLE_PUBLIC_KEY = "GXC8435JoLsmNgEzJBqkSzqfz65isQA1XfTvkGycG5KAdgsq4BhwV";
+    private static String EXAMPLE_PRIVATE_KEY = "5KAYWd4oGVN6ZMcXej9DB74gqNZhcZP7fWtn2MKoCmsUwzJjQVy";
+
     private StoreDataClient storeDataClient = new StoreDataClient(EXAMPLE_ACCOUNT,
-            EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false, URL_DEVELOPER_HEADER);
+            EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, true);
 
     @Test
     public void store() {
-//        System.out.println(JSON.toJSONString(storeDataClient.store("test".getBytes())));
+        System.out.println(JSON.toJSONString(storeDataClient.store("Hello GXChain!".getBytes())));
     }
 
     @Test
