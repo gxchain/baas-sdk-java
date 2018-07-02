@@ -24,7 +24,7 @@ public interface BaasConstants {
     // 线上 正式节点BaaS账户，对应gxs-wallet
     String BAAS_ACCOUNT = "1.2.639287";
     // 开发者 测试节点BaaS账户，对应gxs-wallet
-    String BAAS_DEV_ACCOUNT = "1.2.440";
+    String BAAS_DEV_ACCOUNT = "1.2.241";
 
 
     @Nullable

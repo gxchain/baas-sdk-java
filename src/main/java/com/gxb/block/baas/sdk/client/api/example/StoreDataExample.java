@@ -19,9 +19,9 @@ import static com.gxb.block.baas.sdk.client.api.BaasConstants.*;
 public class StoreDataExample {
 
 
-    private static String EXAMPLE_ACCOUNT = "1.2.441";
-    private static String EXAMPLE_PUBLIC_KEY = "GXC8435JoLsmNgEzJBqkSzqfz65isQA1XfTvkGycG5KAdgsq4BhwV";
-    private static String EXAMPLE_PRIVATE_KEY = "5KAYWd4oGVN6ZMcXej9DB74gqNZhcZP7fWtn2MKoCmsUwzJjQVy";
+    private static String EXAMPLE_ACCOUNT = "1.2.61";
+    private static String EXAMPLE_PUBLIC_KEY = "GXC7B6EzUVAat9adeWX89CQWT6WXyPQJEyQRbrPxpRXDdY1mXm9RH";
+    private static String EXAMPLE_PRIVATE_KEY = "5JnDdu5s4jFeQ7Kqovgdcae5t1spodJFPuJzs4Xpd88Grhx8GGV";
 
     public static void main(String[] args) throws BaasApiException {
         StoreDataExample example = new StoreDataExample();
@@ -34,9 +34,7 @@ public class StoreDataExample {
         System.out.println(JSON.toJSONString(client.storeString(RandomStringUtils.random(8))));
     }
 
-    private void loop() {
-        StoreDataClient client = new StoreDataClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, true,
-                URL_HEADER);
+    private void loop(StoreDataClient client) {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         for (int i = 1; i < 100000; i++) {
             if (i % 1000 == 0) {
