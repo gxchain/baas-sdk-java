@@ -18,7 +18,7 @@ import static com.gxb.block.baas.sdk.client.api.BaasConstants.*;
  */
 public class StoreDataExample {
 
-
+    // 该例子为开发者测试环境的测试账号
     private static String EXAMPLE_ACCOUNT = "1.2.61";
     private static String EXAMPLE_PUBLIC_KEY = "GXC7B6EzUVAat9adeWX89CQWT6WXyPQJEyQRbrPxpRXDdY1mXm9RH";
     private static String EXAMPLE_PRIVATE_KEY = "5JnDdu5s4jFeQ7Kqovgdcae5t1spodJFPuJzs4Xpd88Grhx8GGV";

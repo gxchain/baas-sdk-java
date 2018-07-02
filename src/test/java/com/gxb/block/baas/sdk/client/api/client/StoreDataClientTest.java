@@ -15,12 +15,13 @@ import static org.junit.Assert.*;
  */
 public class StoreDataClientTest {
 
+    // 该例子为开发者测试环境的测试账号
     private static String EXAMPLE_ACCOUNT = "1.2.61";
     private static String EXAMPLE_PUBLIC_KEY = "GXC7B6EzUVAat9adeWX89CQWT6WXyPQJEyQRbrPxpRXDdY1mXm9RH";
     private static String EXAMPLE_PRIVATE_KEY = "5JnDdu5s4jFeQ7Kqovgdcae5t1spodJFPuJzs4Xpd88Grhx8GGV";
 
     private StoreDataClient storeDataClient = new StoreDataClient(EXAMPLE_ACCOUNT,
-            EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY);
+            EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, true);
 
     @Test
     public void store() {
@@ -29,6 +30,6 @@ public class StoreDataClientTest {
 
     @Test
     public void getStoreDataReq() {
-        System.out.println(storeDataClient.getRawStringData("QmaZrwThXyZm8Rxs93Tih3L6p4Q8NqYEXp32iN4PeAqDgv"));
+        System.out.println(storeDataClient.getRawStringData("QmSJhEQDiAR5FmJE1BgSUfDU6bjNRENbu3LJnFMR64ciyR"));
     }
 }
