@@ -28,9 +28,9 @@ public interface BaasConstants {
 
 
     @Nullable
-    static ProviderResp getProvider() {
+    static ProviderResp getProvider(String urlHeader) {
         try {
-            return new BaasDefaultClient(URL_HEADER + "storage/provider").execute(new ProviderReq());
+            return new BaasDefaultClient(urlHeader + "storage/provider").execute(new ProviderReq());
         } catch (BaasApiException e) {
             e.printStackTrace();
         }

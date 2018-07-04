@@ -20,10 +20,14 @@ public class ProviderResp extends BaasResponse {
 
     @Data
     public static class Result {
+        @Deprecated
         @JSONField(name = "baas_account_id")
         private String baasAccountId;
+        @Deprecated
         @JSONField(name = "baas_account_dev_id")
         private String baasAccountDevId;
+        @JSONField(name = "account_id")
+        private String accountId;
         private String name;
         private String description;
         private List<Fee> fees;
