@@ -15,7 +15,7 @@ If you just enjoy the BaaS service. you can go to [BaaS API](https://doc.gxb.io/
 // EXAMPLE_PRIVATE_KEY is your account private key
 // EXAMPLE_PUBLIC_KEY is your account public key
 // * Attention: Your EXAMPLE_PRIVATE_KEY and EXAMPLE_PUBLIC_KEY can not be uploaded.
-StoreClient client = new StoreClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
+StoreDataClient client = new StoreDataClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
 // response
 // 获取返回
 // byte[]
@@ -26,12 +26,12 @@ StoreDataResp respString = client.storeString("Hello GXChain!");
 StoreDataResp respFile = client.storeFile(new File(FILE_PATH));
 ```
 
-You can get more from **com.gxb.block.baas.sdk.client.api.client.StoreClient**.
+You can get more from **com.gxb.block.baas.sdk.client.api.client.StoreDataClient**.
 
 ## get upload file/string/byte[]
 
 ```js
-StoreClient client = new StoreClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
+StoreDataClient client = new StoreDataClient(EXAMPLE_ACCOUNT, EXAMPLE_PRIVATE_KEY, EXAMPLE_PUBLIC_KEY, false);
 // File 
 File file = client.downloadFile(CID,FILE_PATH);
 // String
