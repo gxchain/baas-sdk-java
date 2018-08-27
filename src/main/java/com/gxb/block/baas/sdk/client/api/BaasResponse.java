@@ -1,7 +1,5 @@
 package com.gxb.block.baas.sdk.client.api;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
 /**
@@ -10,8 +8,28 @@ import java.io.Serializable;
  * @Date 2018/3/12
  * @Version 1.0
  */
-@Data public abstract class BaasResponse implements Serializable {
+public abstract class BaasResponse implements Serializable {
     private static final long serialVersionUID = -8953054088680330201L;
     private Integer code;
     private String msg;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 }

@@ -1,11 +1,7 @@
 package com.gxb.block.baas.sdk.client.api.client;
 
 import com.alibaba.fastjson.JSON;
-import com.gxb.block.baas.sdk.client.api.BaasConstants;
 import org.junit.Test;
-
-import static com.gxb.block.baas.sdk.client.api.BaasConstants.*;
-import static org.junit.Assert.*;
 
 /**
  * @Description

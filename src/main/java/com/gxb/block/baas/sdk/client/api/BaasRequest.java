@@ -1,7 +1,6 @@
 package com.gxb.block.baas.sdk.client.api;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Map;
 
@@ -12,7 +11,9 @@ import java.util.Map;
  * @Version 1.0
  */
 public interface BaasRequest<T extends BaasResponse> {
-    @JsonIgnore @JSONField(serialize = false) Class<T> getResponseClass();
+    @JSONField(serialize = false)
+    Class<T> getResponseClass();
 
-    @JsonIgnore @JSONField(serialize = false) Map<String, String> toMap();
+    @JSONField(serialize = false)
+    Map<String, String> toMap();
 }

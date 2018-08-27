@@ -7,11 +7,9 @@ import com.gxb.block.baas.sdk.client.api.BaasDefaultClient;
 import com.gxb.block.baas.sdk.client.api.request.StoreDataReq;
 import com.gxb.block.baas.sdk.client.api.response.ProviderResp;
 import com.gxb.block.baas.sdk.client.api.response.StoreDataResp;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.DigestUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +24,6 @@ import static com.gxb.block.baas.sdk.client.api.BaasConstants.KBYTE_NUM;
  * @Version 1.0
  */
 public class StoreDataClient extends BaasDefaultClient {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final String STORE_URL = "storage/store";
     //    private static final String STORE_FEE_URL = "storeFee";// 1.0.0-RELEASE
@@ -99,7 +96,7 @@ public class StoreDataClient extends BaasDefaultClient {
             StoreDataReq storeDataReq = new StoreDataReq();
 
             // md5
-            String memo = DigestUtils.md5DigestAsHex(rawData);
+            String memo = DigestUtils.md5Hex(rawData);
 
             storeDataReq.setFrom(accountId);
             storeDataReq.setTo(this.isDev ? baasAccountDevId : baasAccountId);
@@ -115,12 +112,12 @@ public class StoreDataClient extends BaasDefaultClient {
 
             storeDataReq.setSignatures(sign);
 
-            logger.info("请求参数为:{}", JSON.toJSONString(storeDataReq));
+            System.out.println("请求参数为:" + JSON.toJSONString(storeDataReq));
             this.setUrl(this.urlHeader + STORE_URL);
             return this.executeFormData(storeDataReq, "data", rawData);
 
         } catch (BaasApiException e) {
-            logger.info(e.getMessage(), e);
+            e.printStackTrace();
         }
 
         return null;
@@ -149,12 +146,7 @@ public class StoreDataClient extends BaasDefaultClient {
      * @return
      */
     public String getRawStringData(String cid) {
-        try {
-            return this.execute(this.urlHeader + GET_DATA_URL_BODY + cid);
-        } catch (BaasApiException e) {
-            logger.error(e.getMessage(), e);
-        }
-        return null;
+        return this.execute(this.urlHeader + GET_DATA_URL_BODY + cid);
     }
 
     /**
@@ -185,7 +177,7 @@ public class StoreDataClient extends BaasDefaultClient {
             this.feePerKByte = BaasConstants.FEE_PER_KBYTE;
         } else {
             this.baasAccountId = provider.getData().getAccountId();
-            this.baasAccountDevId = provider.getData().getBaasAccountDevId();
+            this.baasAccountDevId = provider.getData().getAccountId();
             this.feePerKByte = provider.getData().getFees().stream().filter(a -> ASSET_ID_GXS.equals(a.getAssetId())).findAny().map(ProviderResp.Fee::getFeePerKBytes).orElse(BaasConstants.FEE_PER_KBYTE);
         }
     }

@@ -1,9 +1,10 @@
 package com.gxb.block.baas.sdk.client.api.request;
 
-import com.gxb.block.baas.sdk.client.api.BaasConstants;
+import com.gxb.block.baas.sdk.client.utils.Varint;
 import com.gxchain.common.signature.SignatureUtil;
-import com.gxchain.common.ws.client.graphenej.Varint;
-import org.joda.time.DateTime;
+import org.apache.commons.lang3.time.DateUtils;
+
+import java.util.Date;
 
 /**
  * @Description 需要上链的base request
@@ -13,7 +14,7 @@ import org.joda.time.DateTime;
  */
 public abstract class BaseOnChainReq {
 
-    private long expiration = new DateTime().plusHours(8).getMillis() / 1000 + 60;
+    private long expiration = DateUtils.addHours(new Date(), 8).getTime() / 1000 + 60;
 
     abstract byte[] toBytes();
 

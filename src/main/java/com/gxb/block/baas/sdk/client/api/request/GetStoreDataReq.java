@@ -2,7 +2,6 @@ package com.gxb.block.baas.sdk.client.api.request;
 
 import com.gxb.block.baas.sdk.client.api.BaasRequest;
 import com.gxb.block.baas.sdk.client.api.response.GetStoreDataResp;
-import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,7 @@ import java.util.Map;
  * @Date 2018/3/13
  * @Version 1.0
  */
-@Data public class GetStoreDataReq implements BaasRequest<GetStoreDataResp> {
+public class GetStoreDataReq implements BaasRequest<GetStoreDataResp> {
 
     private String data_cid;
 
@@ -25,5 +24,13 @@ import java.util.Map;
         Map<String,String> map = new HashMap<>();
         map.put("dataCid",data_cid);
         return map;
+    }
+
+    public String getData_cid() {
+        return data_cid;
+    }
+
+    public void setData_cid(String data_cid) {
+        this.data_cid = data_cid;
     }
 }

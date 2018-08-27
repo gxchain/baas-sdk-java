@@ -1,7 +1,6 @@
 package com.gxb.block.baas.sdk.client.api;
 
 import com.gxb.block.baas.sdk.client.enums.BaasErrEnum;
-import lombok.Getter;
 
 /**
  * @Description
@@ -10,8 +9,8 @@ import lombok.Getter;
  * @Version 1.0
  */
 public class BaasApiException extends Exception {
-    @Getter private int errCode;
-    @Getter private String errMsg;
+    private int errCode;
+    private String errMsg;
 
     public BaasApiException() {
         super("Deprecated request");
@@ -37,5 +36,13 @@ public class BaasApiException extends Exception {
         super(errCode + ":" + errMsg);
         this.errCode = errCode;
         this.errMsg = errMsg;
+    }
+
+    public int getErrCode() {
+        return errCode;
+    }
+
+    public String getErrMsg() {
+        return errMsg;
     }
 }

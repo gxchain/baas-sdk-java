@@ -20,11 +20,13 @@ public interface BaasConstants {
     String URL_HEADER = "https://baas.gxchain.cn/api/";
     // 开发者 路径
     String URL_DEVELOPER_HEADER = "https://baas-developer.gxchain.cn/api/";
+//    String URL_DEVELOPER_HEADER = "http://192.168.1.165:6318/api/";
 
     // 线上 正式节点BaaS账户，对应gxs-wallet
     String BAAS_ACCOUNT = "1.2.639287";
     // 开发者 测试节点BaaS账户，对应gxs-wallet
     String BAAS_DEV_ACCOUNT = "1.2.241";
+//    String BAAS_DEV_ACCOUNT = "1.2.390";
 
 
     @Nullable
