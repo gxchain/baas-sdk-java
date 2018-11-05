@@ -1,7 +1,7 @@
 # Introduction
 
 This is a Java project.
-If you just enjoy the BaaS service. you can go to [BaaS API](https://doc.gxb.io/gxchain/api/baas-api.html).
+If you just enjoy the BaaS service. you can go to [BaaS API](https://docs.gxchain.org/zh/baas-api/).
 
 
 # Storage Usage
