@@ -42,4 +42,4 @@ byte[] bytes = client.getRawBytes(CID);
 
 # Dev Documents
 
-https://doc.gxb.io/gxchain/api/baas-api.html
+https://docs.gxchain.org/zh/baas-api/
